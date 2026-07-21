@@ -2,7 +2,7 @@ import 'package:evently/core/router/routes_name.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/configuration/configuration_screen.dart';
-import '../../features/splash/screens/splash_screen.dart';
+import '../../features/splash/splash_screen.dart';
 
 abstract class AppRouter {
   static Map<String, Widget Function(BuildContext)> routes = {
