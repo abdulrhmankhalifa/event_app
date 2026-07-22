@@ -1,6 +1,8 @@
+import 'package:evently/features/configuration/provider/congiuration_provider.dart';
 import 'package:evently/features/configuration/widgets/custom_configuration_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/assets/app_icons.dart';
 import '../../core/assets/app_images.dart';
@@ -10,6 +12,7 @@ class ConfigurationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.read<ConfigurationProvider>();
     final TextTheme textTheme = Theme.of(context).textTheme;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
@@ -56,6 +59,7 @@ class ConfigurationScreen extends StatelessWidget {
                         color: colorScheme.tertiary,
                       ),
               ),
+              onLeftTap: () {},
               rightChild: Text(
                 'Arabic',
                 style: !true
@@ -68,25 +72,20 @@ class ConfigurationScreen extends StatelessWidget {
                         color: colorScheme.tertiary,
                       ),
               ),
+              onRightTap: () {},
             ),
             SizedBox(height: 8),
             CustomConfigurationRow(
               title: 'Theme',
-              isSelected: true,
-              leftChild: SvgPicture.asset(
-                AppIcons.sun,
-                colorFilter: ColorFilter.mode(
-                  true ? colorScheme.onPrimary : colorScheme.tertiary,
-                  BlendMode.srcIn,
-                ),
-              ),
-              rightChild: SvgPicture.asset(
-                AppIcons.moon,
-                colorFilter: ColorFilter.mode(
-                  !true ? colorScheme.onPrimary : colorScheme.tertiary,
-                  BlendMode.srcIn,
-                ),
-              ),
+              isSelected: !provider.isDark,
+              leftChild: SvgPicture.asset(AppIcons.sun),
+              onLeftTap: () {
+                provider.changeTheme(ThemeMode.light);
+              },
+              rightChild: SvgPicture.asset(AppIcons.moon),
+              onRightTap: () {
+                provider.changeTheme(ThemeMode.dark);
+              },
             ),
             SizedBox(height: 24),
             FilledButton(onPressed: () {}, child: Text('Let\'s start')),

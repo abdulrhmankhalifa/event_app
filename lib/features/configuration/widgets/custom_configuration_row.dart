@@ -5,12 +5,16 @@ class CustomConfigurationRow extends StatelessWidget {
   final bool isSelected;
   final Widget leftChild;
   final Widget rightChild;
+  final VoidCallback onLeftTap;
+  final VoidCallback onRightTap;
   const CustomConfigurationRow({
     super.key,
     required this.title,
     required this.isSelected,
     required this.leftChild,
     required this.rightChild,
+    required this.onLeftTap,
+    required this.onRightTap,
   });
 
   @override
@@ -29,24 +33,32 @@ class CustomConfigurationRow extends StatelessWidget {
         ),
         Row(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
-              decoration: BoxDecoration(
-                color: isSelected ? colorScheme.primary : colorScheme.onPrimary,
-                borderRadius: BorderRadius.circular(8.0),
+            GestureDetector(
+              onTap: onLeftTap,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
+                decoration: BoxDecoration(
+                  color: isSelected
+                      ? colorScheme.primary
+                      : colorScheme.onPrimary,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: leftChild,
               ),
-              child: leftChild,
             ),
             SizedBox(width: 6),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
-              decoration: BoxDecoration(
-                color: !isSelected
-                    ? colorScheme.primary
-                    : colorScheme.onPrimary,
-                borderRadius: BorderRadius.circular(8.0),
+            GestureDetector(
+              onTap: onRightTap,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
+                decoration: BoxDecoration(
+                  color: !isSelected
+                      ? colorScheme.primary
+                      : colorScheme.onPrimary,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: rightChild,
               ),
-              child: rightChild,
             ),
           ],
         ),
