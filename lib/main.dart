@@ -1,7 +1,9 @@
 import 'package:evently/features/configuration/provider/congiuration_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'core/l10n/app_localizations.dart';
 import 'core/router/app_router.dart';
 import 'core/router/routes_name.dart';
 import 'core/theme/app_theme.dart';
@@ -21,6 +23,14 @@ class MyApp extends StatelessWidget {
       child: Consumer<ConfigurationProvider>(
         builder: (context, provider, child) {
           return MaterialApp(
+            localizationsDelegates: [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [Locale('en'), Locale('ar')],
+            locale: Locale(provider.locale),
             debugShowCheckedModeBanner: false,
             themeMode: provider.themeMode,
             theme: AppTheme.lightTheme,

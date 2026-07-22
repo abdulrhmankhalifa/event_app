@@ -1,3 +1,4 @@
+import 'package:evently/core/l10n/app_localizations.dart';
 import 'package:evently/features/configuration/provider/congiuration_provider.dart';
 import 'package:evently/features/configuration/widgets/custom_configuration_row.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class ConfigurationScreen extends StatelessWidget {
               ),
             ),
             Text(
-              'Personalize Your Experience',
+              AppLocalizations.of(context)!.personalizeYourExperience,
               style: textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: colorScheme.tertiary,
@@ -40,16 +41,16 @@ class ConfigurationScreen extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.',
+              AppLocalizations.of(context)!.configurationDescription,
               style: textTheme.bodyLarge,
             ),
             SizedBox(height: 16),
             CustomConfigurationRow(
-              title: 'Language',
-              isSelected: true,
+              title: AppLocalizations.of(context)!.language,
+              isSelected: provider.isEn,
               leftChild: Text(
-                'English',
-                style: true
+                AppLocalizations.of(context)!.english,
+                style: provider.isEn
                     ? textTheme.labelMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                         color: colorScheme.onPrimary,
@@ -59,10 +60,12 @@ class ConfigurationScreen extends StatelessWidget {
                         color: colorScheme.tertiary,
                       ),
               ),
-              onLeftTap: () {},
+              onLeftTap: () {
+                provider.changeLanguage('en');
+              },
               rightChild: Text(
-                'Arabic',
-                style: !true
+                AppLocalizations.of(context)!.arabic,
+                style: !provider.isEn
                     ? textTheme.labelMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                         color: colorScheme.onPrimary,
@@ -72,11 +75,13 @@ class ConfigurationScreen extends StatelessWidget {
                         color: colorScheme.tertiary,
                       ),
               ),
-              onRightTap: () {},
+              onRightTap: () {
+                provider.changeLanguage('ar');
+              },
             ),
             SizedBox(height: 8),
             CustomConfigurationRow(
-              title: 'Theme',
+              title: AppLocalizations.of(context)!.theme,
               isSelected: !provider.isDark,
               leftChild: SvgPicture.asset(AppIcons.sun),
               onLeftTap: () {
@@ -88,7 +93,10 @@ class ConfigurationScreen extends StatelessWidget {
               },
             ),
             SizedBox(height: 24),
-            FilledButton(onPressed: () {}, child: Text('Let\'s start')),
+            FilledButton(
+              onPressed: () {},
+              child: Text(AppLocalizations.of(context)!.letsStart),
+            ),
           ],
         ),
       ),

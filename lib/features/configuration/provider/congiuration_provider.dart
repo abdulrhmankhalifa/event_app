@@ -9,4 +9,13 @@ class ConfigurationProvider extends ChangeNotifier {
   }
 
   bool get isDark => themeMode == ThemeMode.dark;
+
+  String locale = 'en';
+
+  void changeLanguage(String newLocale) {
+    locale = newLocale;
+    notifyListeners();
+  }
+
+  bool get isEn => locale == 'en';
 }
