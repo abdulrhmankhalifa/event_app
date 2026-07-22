@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/assets/app_icons.dart';
-import '../../core/assets/app_images.dart';
+import '../../core/utils/assets/app_icons.dart';
+import '../../core/utils/assets/app_images.dart';
 
 class ConfigurationScreen extends StatelessWidget {
   const ConfigurationScreen({super.key});
