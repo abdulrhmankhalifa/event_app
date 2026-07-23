@@ -39,6 +39,7 @@ dependencies:
   shared_preferences:
   flutter_svg:
   provider:
+  iconsax_plus:
   flutter_localizations:
     sdk: flutter
   intl: any

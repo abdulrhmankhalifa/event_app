@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/router/routes_name.dart';
 import '../../core/utils/assets/app_icons.dart';
 import '../../core/utils/assets/app_images.dart';
 
@@ -94,7 +95,9 @@ class ConfigurationScreen extends StatelessWidget {
             ),
             SizedBox(height: 24),
             FilledButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, RouteName.login);
+              },
               child: Text(AppLocalizations.of(context)!.letsStart),
             ),
           ],

@@ -66,6 +66,7 @@ abstract class AppTheme {
         ),
       ),
     ),
+    dividerTheme: DividerThemeData(thickness: 1, color: AppColors.lightStroke),
 
     appBarTheme: AppBarThemeData(
       backgroundColor: AppColors.lightBackground,
@@ -77,6 +78,57 @@ abstract class AppTheme {
         fontSize: 18,
         fontWeight: FontWeight.w500,
         color: AppColors.lightMainText,
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationThemeData(
+      filled: true,
+      fillColor: AppColors.lightInputs,
+      prefixIconColor: AppColors.lightDisable,
+      suffixIconColor: AppColors.lightDisable,
+      hintStyle: GoogleFonts.poppins(
+        color: AppColors.lightSecText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      ),
+      labelStyle: GoogleFonts.poppins(
+        color: AppColors.lightSecText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      ),
+
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.lightStroke, width: 1),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.lightStroke, width: 1),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.lightMainColor, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.lightRed, width: 2),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.lightRed, width: 2),
+      ),
+    ),
+
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        textStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+          color: AppColors.lightMainColor,
+          decoration: TextDecoration.underline,
+          decorationColor: AppColors.lightMainColor,
+          decorationThickness: 1,
+        ),
       ),
     ),
 
@@ -184,6 +236,21 @@ abstract class AppTheme {
       ),
     ),
 
+    dividerTheme: DividerThemeData(thickness: 1, color: AppColors.darkStroke),
+
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        textStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+          color: AppColors.darkMainColor,
+          decoration: TextDecoration.underline,
+          decorationColor: AppColors.darkMainColor,
+          decorationThickness: 1,
+        ),
+      ),
+    ),
+
     appBarTheme: AppBarThemeData(
       backgroundColor: AppColors.darkBackground,
       foregroundColor: AppColors.darkMainText,
@@ -211,6 +278,44 @@ abstract class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         minimumSize: const Size(double.infinity, 56),
         textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationThemeData(
+      filled: true,
+      fillColor: AppColors.darkInputs,
+      prefixIconColor: AppColors.darkDisable,
+      suffixIconColor: AppColors.darkDisable,
+      hintStyle: GoogleFonts.poppins(
+        color: AppColors.darkSecText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      ),
+      labelStyle: GoogleFonts.poppins(
+        color: AppColors.darkSecText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      ),
+
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.darkStroke, width: 1),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.darkStroke, width: 1),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.darkMainColor, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.darkRed, width: 2),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.darkRed, width: 2),
       ),
     ),
 

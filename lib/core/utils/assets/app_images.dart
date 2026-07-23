@@ -3,4 +3,5 @@ abstract class AppImages {
   static const String routeLogo = 'assets/images/routeLogo.png';
   static const String configurationImage =
       'assets/images/configurationImage.svg';
+  static const String routeLogoMin = 'assets/images/eventlyLogoMin.svg';
 }
