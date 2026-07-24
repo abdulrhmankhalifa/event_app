@@ -1,51 +1,41 @@
-import 'package:evently/core/router/routes_name.dart';
+import 'package:evently/features/authentication/screens/signup/widgets/signup_form_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../../../../core/router/routes_name.dart';
 import '../../../../core/utils/assets/app_icons.dart';
 import '../../widgets/evently_logo_widget.dart';
 import '../../widgets/or_divider.dart';
 import '../../widgets/title_auth_widget.dart';
-import 'widgets/login_form_widget.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 50),
         child: Column(
           children: [
             const EventlyLogoWidget(),
             const SizedBox(height: 48),
-            TitleAuthWidget(title: 'Login to your account'),
+            TitleAuthWidget(title: 'Create your account'),
             const SizedBox(height: 24),
-            LoginFormWidget(),
-            Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            const SizedBox(height: 48),
-            FilledButton(onPressed: () {}, child: Text("Login")),
-            const SizedBox(height: 48),
+            SignupFormWidget(),
+            const SizedBox(height: 52),
+            FilledButton(onPressed: () {}, child: Text("Sign up")),
+            const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account?"),
+                Text("Already have an account?"),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, RouteName.signup);
+                    Navigator.pushReplacementNamed(context, RouteName.login);
                   },
                   child: Text(
-                    "SignUp",
+                    "Login",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -61,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(AppIcons.google),
-                  Text("Login with Google"),
+                  Text("sign up with Google"),
                 ],
               ),
             ),
